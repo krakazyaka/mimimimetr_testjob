@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Kotiki</title>
 </head>
 <body>
@@ -15,24 +16,20 @@
     <table align="center">
         <body>
         <tr>
-            <td><button th:type="text" th:name="kotikInfo" th:value="${k1.id}">
+            <td><button th:type = "text" th:name = "kotikInf" th:value="${k1.id}">
                 <img th:src="'images/'+${k1.imgSource}+'.jpg'"
-                     th:value="*{k1.id}"
                      width="300"
-                     height="300"
-                     th:title="${k1.name}">
+                     height="300">
             </button></td>
-            <td><button th:type="text" th:name="kotikInfo" th:value="${k2.id}">
+            <td><button th:type = "text" th:name = "kotikInf" th:value="${k2.id}">
                 <img th:src="'images/'+${k2.imgSource}+'.jpg'"
-                     th:value="*{k2.id}"
                      width="300"
-                     height="300"
-                     th:title="${k2.name}">
+                     height="300">
             </button></td>
         </tr>
         <tr>
-            <td align="center"> <button th:type="text" th:name="kotikInfo" th:value="${k1.id}" th:text="${k1.name}"></button></td>
-            <td align="center"> <button th:type="text" th:name="kotikInfo" th:value="${k2.id}" th:text="${k2.name}"></button></td>
+            <td align="center"><button th:type="text" th:name = "kotikInf" th:value="${k1.id}" th:text="${k1.name}"></button></td>
+            <td align="center"><button th:type="text" th:name = "kotikInf" th:value="${k2.id}" th:text="${k2.name}"></button></td>
         </tr>
         </body>
     </table>

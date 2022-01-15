@@ -17,16 +17,7 @@ public class KotikServicesImpl implements KotikServices {
 
     private final KotikRepository kotikRepository;
 
-    @Override
-    public List<Kotik> getAllKotik() {
-        List<Kotik> all = kotikRepository.findAll();
-        return all;
-    }
 
-    @Override
-    public Kotik getById(long id) {
-        return kotikRepository.getById(id);
-    }
 
     @Override
     public List<Kotik> getFirst10() {

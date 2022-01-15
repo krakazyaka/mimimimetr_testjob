@@ -16,10 +16,8 @@ public class MyConfig {
     private final KotikRepository kotikRepository;
     @Bean
     @SessionScope
-//    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public GeneratePairService sessionScopedBean(KotikRepository kotikRepository) {
 
-        System.out.println("sessionScopedBean");
+    public GeneratePairService sessionScopedBean(KotikRepository kotikRepository) {
 
         return new GeneratePairService(kotikRepository);
     }

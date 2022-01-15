@@ -7,10 +7,6 @@ import java.util.List;
 
 public interface KotikServices {
 
-    List<Kotik> getAllKotik();
-
-    Kotik getById(long id);
-
     List<Kotik> getFirst10();
 
     void increaseVote(long id);

@@ -50,9 +50,10 @@ public class GeneratePairService {
 
     @PostConstruct
     public void init() {
-        Integer kotikCount = (int)kotikRepository.count();
-        List<Integer> kotiksIds = IntStream.range(0, kotikCount).boxed().collect(Collectors.toList());
 
+        Integer kotikCount = (int)kotikRepository.count();
+
+        List<Integer> kotiksIds = IntStream.range(0, kotikCount).boxed().collect(Collectors.toList());
         Collections.shuffle(kotiksIds);
 
         int j,c;
@@ -62,17 +63,9 @@ public class GeneratePairService {
                 getOrderPair.add(kotiksIds.get(c));
             }
         }
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println(sdf.format(cal.getTime()));
-        System.out.println("sozdal generatedpair");
 
 
-    }
 
-    @PreDestroy
-    public void destroy() {
-        System.out.println("this is destroy method");
     }
 
 }

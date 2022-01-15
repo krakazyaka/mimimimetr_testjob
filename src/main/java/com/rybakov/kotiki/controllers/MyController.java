@@ -26,18 +26,20 @@ import java.util.List;
 public class MyController {
 
     private final KotikServices kotikServices;
+
     @Resource(name = "sessionScopedBean")
     private final GeneratePairService generatePairService;
+
     @GetMapping()
-    public String voteKotik(Model model){
+    public String voteKotik(Model model) {
 
         List<Kotik> pairKotiks = generatePairService.getGeneratedPair();
 
 
-        if(pairKotiks.isEmpty()){
+        if (pairKotiks.isEmpty()) {
             return top10(model);
         }
-        Kotik kotik1 =pairKotiks.get(0);
+        Kotik kotik1 = pairKotiks.get(0);
         Kotik kotik2 = pairKotiks.get(1);
 
         model.addAttribute("k1", kotik1);
@@ -49,11 +51,10 @@ public class MyController {
     }
 
     @PostMapping
-    @Transactional
-    public String voteForKotik(Model model, @RequestBody String kotikInfo) {
-        String[] strings = kotikInfo.split("=");
-        if(strings[1] != null) {
-            kotikServices.increaseVote(Integer.parseInt(strings[1]));
+    public String voteForKotik(Model model, @RequestBody String kotikInf) {
+        String[] inf = kotikInf.split("=");
+        if (inf[1] != null) {
+            kotikServices.increaseVote(Integer.parseInt(inf[1]));
         }
 
         return voteKotik(model);
@@ -62,13 +63,9 @@ public class MyController {
 
     @GetMapping("top10Kotiks")
     public String top10(Model model) {
-        System.out.println("top10");
+
         List<Kotik> topKotiks = kotikServices.getFirst10();
-        System.out.println(topKotiks);
         model.addAttribute("top10Kotiks", topKotiks);
-
-
-
         return "top10Kotiks";
     }
 
