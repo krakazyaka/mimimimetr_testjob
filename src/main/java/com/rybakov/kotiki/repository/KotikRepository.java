@@ -3,6 +3,7 @@ package com.rybakov.kotiki.repository;
 import com.rybakov.kotiki.ENTITY.Kotik;
 import lombok.Builder;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,5 +14,5 @@ public interface KotikRepository extends JpaRepository<Kotik,Long> {
 
     ArrayList<Kotik> findAll();
 
-
+    ArrayList<Kotik> findTop10ByOrderByCountOfVotingDesc();
 }

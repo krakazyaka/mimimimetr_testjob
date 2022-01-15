@@ -19,6 +19,8 @@ public class Kotik {
 
     private String name;
 
+    private String imgSource;
+
     private Integer countOfVoting;
 
 }

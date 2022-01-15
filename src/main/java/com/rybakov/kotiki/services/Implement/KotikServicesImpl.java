@@ -30,9 +30,9 @@ public class KotikServicesImpl implements KotikServices {
 
     @Override
     public List<Kotik> getFirst10() {
-        List<Kotik> top10Kotiks = kotikRepository.findAll(Sort.by(Sort.Direction.ASC, "countOfVoting"));
+        List<Kotik> top10Kotiks = kotikRepository.findTop10ByOrderByCountOfVotingDesc();
         if(top10Kotiks.size() > 10) {
-            return top10Kotiks.subList(0, 10);
+            return top10Kotiks.subList(0, 9);
         }
         else {
             return top10Kotiks;
@@ -43,7 +43,6 @@ public class KotikServicesImpl implements KotikServices {
     @Override
     public void increaseVote(long id){
         Kotik kotik = kotikRepository.getById(id);
-        System.out.println(kotik.toString());
         kotik.setCountOfVoting(kotik.getCountOfVoting()+1);
         kotikRepository.save(kotik);
     }

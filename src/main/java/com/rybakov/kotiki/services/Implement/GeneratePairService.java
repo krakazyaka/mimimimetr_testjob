@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,7 +62,12 @@ public class GeneratePairService {
                 getOrderPair.add(kotiksIds.get(c));
             }
         }
-        System.out.println(getOrderPair);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(sdf.format(cal.getTime()));
+        System.out.println("sozdal generatedpair");
+
+
     }
 
     @PreDestroy

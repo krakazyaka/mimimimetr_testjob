@@ -6,6 +6,7 @@ import com.rybakov.kotiki.services.Implement.GeneratePairService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Configuration
 @RequiredArgsConstructor
@@ -14,8 +15,11 @@ public class MyConfig {
 
     private final KotikRepository kotikRepository;
     @Bean
-    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+    @SessionScope
+//    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
     public GeneratePairService sessionScopedBean(KotikRepository kotikRepository) {
+
+        System.out.println("sessionScopedBean");
 
         return new GeneratePairService(kotikRepository);
     }
