@@ -1,0 +1,24 @@
+
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post">
+    <h5>Выберите самого мимимишного котика</h5>
+    <button th:type="text" th:name="catInfo" th:value="${k1.id}">
+    </button>
+
+    <button th:type="text" th:name="catInfo" th:value="${k2.id}">
+    </button>
+
+    </br>
+
+    <button th:type="text" th:name="catInfo" th:value="${k1.id}" th:text="${k1.name}"></button>
+    <br>
+    <button th:type="text" th:name="catInfo" th:value="${k1.id}" th:text="${k2.name}"></button>
+</form>
+
+</body>
+</html>
